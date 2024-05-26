@@ -241,7 +241,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 --==============================================
--- Plugins from kickstart
+-- Import Plugins
 --==============================================
 local P = {
 	{ import = "plugins" },
