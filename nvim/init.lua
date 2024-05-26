@@ -11,7 +11,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- from kickstart
 vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.mouse = "a"
@@ -114,8 +113,6 @@ vim.opt.fillchars = { --[[eob = "-",]]
 -- keymaps
 --==============================================
 
--- from kickstart
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Remap for dealing with word wrap
@@ -200,14 +197,6 @@ vim.keymap.set("n", "<leader>bo", function()
 	end
 end, { desc = "Close all other buffers" })
 
--- local bufs=vim.api.nvim_list_bufs()
--- local current_buf=vim.api.nvim_get_current_buf()
--- for _,i in ipairs(bufs) do
---     if i~=current_buf then
---         vim.api.nvim_buf_delete(i,{})
---     end
--- end
-
 -- better n function at search
 -- vim.keymap.set("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 -- vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -256,26 +245,7 @@ vim.opt.rtp:prepend(lazypath)
 --==============================================
 local P = {
 	{ import = "plugins" },
-
-	-- require("plugins.comment"), -- 'gc' for comment
-	-- require("plugins.vim-sleuth"),
-	-- require("plugins.gitsigns"),
-	-- require("plugins.wichkey"),
-	-- require("plugins.telescope"),
-	-- require("plugins.lspconfig"),
-	-- require("plugins.conform"), -- autoformat
-	-- require("plugins.nvim-cmp"), -- auto complete
-	-- require("plugins.todo-comments"),
-	-- require("plugins.mini"), -- collection of various plugins from mini
-	-- require("plugins.treesitter"),
-	--
-	-- require("plugins.nvim-dap"), -- debugerstuff
-	-- require("plugins.indent-blankline"),
-	-- require("plugins.nvim-lint"), -- linting ...
-	-- require("plugins.nvim-autopairs"),
-	-- require("plugins.neo-tree"),
 }
--- end op kickstart plugins ?
 
 --==============================================
 -- start lazy
