@@ -2,43 +2,43 @@ return { -- nvim scrollbar
 	"petertriho/nvim-scrollbar",
 	opts = {
 		handle = {
-			text = "   ",
+			text = "  ",
 		},
 		marks = {
 			Cursor = {
-				text = "<--",
+				text = "<-",
 			},
 			Search = {
-				text = { " - ", " = " },
+				text = { "- ", "= " },
 			},
 			Hint = {
-				text = { "- ", "= " },
+				text = { "-", "=" },
 				--
 			},
 			Error = {
-				text = { "- ", "= " },
+				text = { "-", "=" },
 				--
 			},
 			Warn = {
-				text = { "- ", "= " },
+				text = { "-", "=" },
 				-- 
 			},
 			Info = {
-				text = { "- ", "= " },
+				text = { "-", "=" },
 				-- 
 			},
 			Misc = {
-				text = { "- ", "= " },
+				text = { "-", "=" },
 				--
 			},
 			GitAdd = {
-				text = { "- ", "= " },
+				text = { "-", "=" },
 			},
 			GitChange = {
-				text = { "- ", "= " },
+				text = { "-", "=" },
 			},
 			GitDelete = {
-				text = { "-󰍵 ", "=󰍵 " },
+				text = { "󰍵-", "󰍵=" },
 			},
 			-- ╪┼├ ┤󰍵
 		},

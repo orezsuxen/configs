@@ -104,7 +104,8 @@ end
 vim.opt.foldtext = "v:lua.MyFoldtext()"
 ]]
 
-vim.opt.fillchars = { --[[eob = "-",]]
+vim.opt.fillchars = {
+	eob = "",
 	fold = "═",
 }
 -- vim.api.nvim_set_hl(0, "Folded", { fg = "#5C6370"  })
@@ -114,6 +115,7 @@ vim.opt.fillchars = { --[[eob = "-",]]
 --==============================================
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader><CR>", "<C-]>")
 
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
