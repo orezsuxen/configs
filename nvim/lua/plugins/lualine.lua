@@ -26,7 +26,8 @@ return {
 						if recording_register == "" then
 							return ""
 						else
-							return "Recording @" .. recording_register
+							return "Rec 󰳻 " .. recording_register
+							-- 󰳻 󰑋 󰳼
 						end
 					end,
 				},
@@ -44,8 +45,8 @@ return {
 				},
 			},
 			lualine_c = {
-				"selectioncount",
-				"searchcount",
+				-- "selectioncount",
+				-- "searchcount",
 				-- {
 				-- 	"buffers",
 				-- 	mode = 2,
@@ -57,19 +58,29 @@ return {
 				--[['selectioncount','searchcount','filetype',--]]
 			},
 			lualine_x = { --[[ 'encoding', 'fileformat','buffers','tabs','filename', 'filesize'--]]
+				-- {
+				-- 	"buffers",
+				-- 	mode = 2,
+				-- 	use_mode_colors = true,
+				-- 	buffers_color = {
+				-- 		active = { gui = "bold,italic", fg = "black", bg = "grey" },
+				-- 	},
+				--},
+				"selectioncount",
+				"searchcount",
+			},
+			lualine_y = {
 				{
 					"buffers",
 					mode = 2,
 					use_mode_colors = true,
-					buffers_color = {
-						active = { gui = "bold,italic", fg = "black", bg = "grey" },
-					},
+					-- buffers_color = {
+					-- 	active = { gui = "bold,italic", fg = "black", bg = "grey" },
+					-- },
 				},
-			},
-			lualine_y = {
-				"encoding",
-				"fileformat",
-				"filesize" --[[ 'progress', 'location', ]],
+				-- "encoding",
+				-- "fileformat",
+				-- "filesize" --[[ 'progress', 'location', ]],
 			},
 			lualine_z = {
 				"progress",
@@ -86,6 +97,22 @@ return {
 		},
 	},
 	config = function(_, opts)
+		local trouble = require("trouble")
+		local symbols = trouble.statusline({
+			mode = "lsp_document_symbols",
+			groups = {},
+			title = false,
+			filter = { range = true },
+			format = "{kind_icon}{symbol.name:Normal}",
+			-- The following line is needed to fix the background color
+			-- Set it to the lualine section you want to use
+			hl_group = "lualine_c_normal",
+		})
+		table.insert(opts.sections.lualine_c, {
+			symbols.get,
+			cond = symbols.has,
+		})
+
 		require("lualine").setup(opts)
 		vim.keymap.set("n", "<leader>b1", "<cmd>LualineBuffersJump! 1<cr>", { desc = "Jump to Buffer 1" })
 		vim.keymap.set("n", "<leader>b2", "<cmd>LualineBuffersJump! 2<cr>", { desc = "Jump to Buffer 2" })

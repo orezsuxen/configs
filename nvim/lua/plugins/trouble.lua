@@ -1,68 +1,41 @@
 return {
 	"folke/trouble.nvim",
-	-- branch = "dev", -- IMPORTANT!
-	-- keys = {
-	-- 	{
-	-- 		"<leader>xx",
-	-- 		"<cmd>Trouble diagnostics toggle<cr>",
-	-- 		desc = "Diagnostics (Trouble)",
-	-- 	},
-	-- 	{
-	-- 		"<leader>xX",
-	-- 		"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-	-- 		desc = "Buffer Diagnostics (Trouble)",
-	-- 	},
-	-- 	{
-	-- 		"<leader>xs",
-	-- 		"<cmd>Trouble symbols toggle focus=false<cr>",
-	-- 		desc = "Symbols (Trouble)",
-	-- 	},
-	-- 	{
-	-- 		"<leader>xl",
-	-- 		"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-	-- 		desc = "LSP Definitions / references / ... (Trouble)",
-	-- 	},
-	-- 	{
-	-- 		"<leader>xL",
-	-- 		"<cmd>Trouble loclist toggle<cr>",
-	-- 		desc = "Location List (Trouble)",
-	-- 	},
-	-- 	{
-	-- 		"<leader>xQ",
-	-- 		"<cmd>Trouble qflist toggle<cr>",
-	-- 		desc = "Quickfix List (Trouble)",
-	-- 	},
-	-- },
-	opts = {}, -- for default options, refer to the configuration section for custom setup.
+	opts = {
+		modes = {
+			lsp = {
+				win = { position = "right", size = { width = (vim.o.columns / 5) } },
+			},
+		},
+	},
 	config = function(_, opts)
 		require("trouble").setup(opts)
 
 		vim.keymap.set("n", "<leader>xx", function()
-			require("trouble").toggle()
+			require("trouble").toggle("diagnostics")
 		end, { desc = "toggle trouble" })
 
-		vim.keymap.set("n", "<leader>xw", function()
-			require("trouble").toggle("workspace_diagnostics")
-		end, { desc = "workspace diagnostics" })
+		vim.keymap.set("n", "<leader>xX", function()
+			require("trouble").toggle("diagnostics")
+		end, { desc = "toggle trouble" })
 
-		vim.keymap.set("n", "<leader>xd", function()
-			require("trouble").toggle("document_diagnostics")
-		end, { desc = "document diagnostics" })
-
-		vim.keymap.set("n", "<leader>xq", function()
-			require("trouble").toggle("quickfix")
-		end, { desc = "quickfix" })
-
-		vim.keymap.set("n", "<leader>xl", function()
-			require("trouble").toggle("loclist")
-		end, { desc = "loclist" })
-
-		vim.keymap.set("n", "<leader>xR", function()
-			require("trouble").toggle("lsp_references")
-		end, { desc = "lsp reference" })
-
-		vim.keymap.set("n", "<leader>xR", function()
+		vim.keymap.set("n", "<leader>cs", function()
 			require("trouble").toggle("symbols")
-		end, { desc = "lsp reference" })
+		end, { desc = "code symbols" })
+
+		vim.keymap.set("n", "<leader>cl", function()
+			require("trouble").toggle("lsp")
+		end, { desc = "code LSP information" })
+
+		vim.keymap.set("n", "<leader>xL", function()
+			require("trouble").toggle("loclist")
+		end, { desc = "toggle trouble loclist" })
+
+		vim.keymap.set("n", "<leader>xQ", function()
+			require("trouble").toggle("quickfix")
+		end, { desc = "toggle trouble quickfixlist" })
+
+		vim.keymap.set("n", "<leader>xj", function() end, { desc = "toggle trouble quickfixlist" })
+
+		vim.keymap.set("n", "<leader>xk", function() end, { desc = "toggle trouble quickfixlist" })
 	end,
 }
