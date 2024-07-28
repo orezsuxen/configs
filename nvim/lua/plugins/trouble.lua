@@ -22,8 +22,16 @@ return {
 			require("trouble").toggle("symbols")
 		end, { desc = "code symbols" })
 
+		vim.keymap.set("n", "<leader>cS", function()
+			require("trouble").toggle("symbols").opts.win.position = "left"
+		end, { desc = "code symbols left side" })
+
 		vim.keymap.set("n", "<leader>cl", function()
 			require("trouble").toggle("lsp")
+		end, { desc = "code LSP information" })
+
+		vim.keymap.set("n", "<leader>cL", function()
+			require("trouble").toggle("lsp").opts.win.position = "left"
 		end, { desc = "code LSP information" })
 
 		vim.keymap.set("n", "<leader>xL", function()

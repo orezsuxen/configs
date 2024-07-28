@@ -236,6 +236,7 @@ vim.fn.sign_define("DiagnosticSignOk", { text = " ", texthl = "DiagnosticSign
 --==============================================
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
@@ -254,3 +255,5 @@ local P = {
 --==============================================
 
 require("lazy").setup(P)
+
+vim.cmd.colorscheme("github_dark_dimmed")

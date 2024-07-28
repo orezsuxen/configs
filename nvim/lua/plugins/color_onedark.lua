@@ -16,6 +16,5 @@ return {
 				transparency = true,
 			},
 		})
-		vim.cmd.colorscheme("onedark")
 	end,
 }
