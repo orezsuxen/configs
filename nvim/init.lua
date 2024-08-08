@@ -57,6 +57,7 @@ vim.opt.wrap = false -- Disable line wrap
 vim.opt.colorcolumn = "80,100" -- color column
 -- vim.opt.showcmd = false -- showcmd
 vim.opt.shortmess:append({ W = true, I = true, c = true })
+vim.opt.showtabline = 0
 
 -- terminal opt for win systems
 vim.opt.shell = "pwsh"
@@ -164,9 +165,9 @@ vim.keymap.set("n", "<leader>wl", "<C-w>l", { desc = "Go to right window", remap
 vim.keymap.set("n", "<leader><tab>j", "<cmd>tablast<cr>", { desc = "Last Tab" })
 vim.keymap.set("n", "<leader><tab>k", "<cmd>tabfirst<cr>", { desc = "First Tab" })
 vim.keymap.set("n", "<leader><tab>n", "<cmd>tabnew<cr>", { desc = "New Tab" })
-vim.keymap.set("n", "<leader><tab>h", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+vim.keymap.set("n", "<leader><tab>h", "<cmd>tabprevious<cr>", { desc = "Next Tab" })
 vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-vim.keymap.set("n", "<leader><tab>l", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<leader><tab>l", "<cmd>tabnext<cr>", { desc = "Previous Tab" })
 
 -- resize window with arrow keys
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })

@@ -83,6 +83,7 @@ return {
 				-- "filesize" --[[ 'progress', 'location', ]],
 			},
 			lualine_z = {
+				{ "tabs", mode = 0,use_mode_colors = true, show_modified_status = false, symbols = { modified = "+" } },
 				"progress",
 				"location", --[[ function() return " " .. os.date("%R") end, ]]
 			},
